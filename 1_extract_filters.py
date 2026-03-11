@@ -13,7 +13,16 @@ print("Reading all sheets...")
 all_records = []
 
 # Load all sheets
-sheets = pd.read_excel(INPUT_FILE, sheet_name=None, header=None)
+try:
+    sheets = pd.read_excel(INPUT_FILE, sheet_name=None, header=None)
+except Exception as e:
+    print(f"Error reading Excel file: {e}")
+    sheets = pd.read_excel(
+    INPUT_FILE,
+    sheet_name=None,
+    header=None,
+    engine="calamine"
+)
 
 for sheet_name, raw in sheets.items():
     print(f"Processing sheet: {sheet_name}")
