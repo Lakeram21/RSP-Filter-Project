@@ -62,3 +62,4 @@ final.to_excel(DICT_FILE, index=False)
 
 print("Dictionary updated correctly.")
 print("Existing entries preserved, new ones added.")
+print("Please review the 'Canonical Value' column and fill in as needed before the next run.")
